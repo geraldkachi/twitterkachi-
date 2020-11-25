@@ -11,7 +11,7 @@ const TweeetFooter = ({ tweet }) => {
         <Text style={styles.number}>{tweet.numberOfComments}</Text>
       </View>
       <View style={styles.iconContanier}>
-        <EvilIcons name="retweet" size={20} color="grey" color="grey" />
+        <EvilIcons name="retweet" size={30} color="grey" color="grey" />
         <Text style={styles.number}>{tweet.numberOfRetweets}</Text>
       </View>
       <View style={styles.iconContanier}>
@@ -19,7 +19,9 @@ const TweeetFooter = ({ tweet }) => {
         <Text style={styles.number}>{tweet.numberOfLikes}</Text>
       </View>
       <View style={styles.iconContanier}>
-        <EvilIcons name="share-google" size={20} color="grey" />
+        <Feather name="upload" size={24} color="grey" />
+        {/* <Feather name="upload" size={30}  color="black" /> */}
+        {/* <EvilIcons name="share-google" size={30} color="grey" /> */}
         <Text style={styles.number}>{tweet.numberOfComments}</Text>
       </View>
     </View>

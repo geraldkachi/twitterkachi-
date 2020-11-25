@@ -4,9 +4,7 @@ import Profile from "../../profilePicture/Profile";
 
 const LeftContainer = ({ user }) => {
   return (
-    <View
-    // style={{ marginHorizontal: 0 }}
-    >
+    <View>
       <Profile image={user.image} size={100} />
     </View>
   );

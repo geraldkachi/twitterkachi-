@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
+import Colors from "../../constants/Colors";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
   useTheme,
@@ -12,17 +13,16 @@ import {
   Text,
   TouchableRipple,
   Switch,
+  Button,
 } from "react-native-paper";
+import { FontAwesome, Foundation } from "@expo/vector-icons";
 
-import { AuthContext } from "../components/Context";
+// import { AuthContext } from "../components/Context";
 
+const DrawerContent = (props) => {
+  //   const { signOut, toggleTheme } = React.useContext(AuthContext);
+  // const paperTheme = useTheme();
 
-export const DrawerContent = (props) => {
-
-  
-  const { signOut, toggleTheme } = React.useContext(AuthContext);
-  const paperTheme = useTheme()
-  
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
@@ -30,7 +30,10 @@ export const DrawerContent = (props) => {
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
               <Avatar.Image
-                source={require("../assets/images/geraldkachi.jpg")}
+                source={{
+                  uri:
+                    "https://pbs.twimg.com/profile_images/1329640370565738497/UojmBzVK_400x400.jpg",
+                }}
                 size={50}
               />
 
@@ -58,21 +61,36 @@ export const DrawerContent = (props) => {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="home-outline" color={color} size={size} />
+                <Icon name="account-outline" color={color} size={size} />
               )}
-              label="Home"
+              label="Profile"
               onPress={() => {
-                props.navigation.navigate("Home");
+                props.navigation.navigate("");
               }}
             />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon
+                  name="list-alt"
+                  type="FontAwesome5"
+                  color={color}
+                  size={size}
+                />
+              )}
+              label="Lists"
+              onPress={() => {
+                props.navigation.navigate("");
+              }}
+            />
+            {/* <FontAwesome5 name="list-alt" size={24} color="black" /> */}
             {/*  */}
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-outline" color={color} size={size} />
               )}
-              label="Profile"
+              label="Topics"
               onPress={() => {
-                props.navigation.navigate("ProfileScreen");
+                props.navigation.navigate("");
               }}
             />
             <DrawerItem
@@ -81,34 +99,38 @@ export const DrawerContent = (props) => {
               )}
               label="Bookmarks"
               onPress={() => {
-                props.navigation.navigate("BookmarkScreen");
+                props.navigation.navigate("");
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="settings-outline" color={color} size={size} />
               )}
-              label="Settings"
+              label="Moments"
               onPress={() => {
-                props.navigation.navigate("SettingsScreen");
+                props.navigation.navigate("");
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-check-outline" color={color} size={size} />
               )}
-              label="Support"
+              label="Follower requests"
               onPress={() => {
-                props.navigation.navigate("SupportScreen");
+                props.navigation.navigate("");
               }}
             />
           </Drawer.Section>
           <Drawer.Section title="Preferences">
-            <TouchableRipple onPress={() => {toggleTheme()}}>
+            <TouchableRipple
+              onPress={() => {
+                // toggleTheme();
+              }}
+            >
               <View style={styles.perference}>
                 <Text>Dark Theme</Text>
                 <View pointerEvents="none">
-                  <Switch value={paperTheme.dark} />
+                  {/* <Switch value={paperTheme.dark} /> */}
                 </View>
               </View>
             </TouchableRipple>
@@ -117,16 +139,43 @@ export const DrawerContent = (props) => {
       </DrawerContentScrollView>
       {/*  */}
       <Drawer.Section style={styles.bottomDrawerSection}>
-        <DrawerItem
-          icon={({ color, size }) => (
-            <Icon name="exit-to-app" color={color} size={size} />
-          )}
-          label="Sign Out"
-          onPress={() => {signOut()}}/>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            mariginTop: 12,
+            marginHorizontal: 15,
+          }}
+        >
+          <Foundation
+            name="lightbulb"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => {}}
+          />
+          <FontAwesome
+            name="qrcode"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => {}}
+          />
+          {/* <DrawerItem
+            icon={({ color, size }) => (
+              <Icon name="exit-to-app" color={color} size={size} />
+            )}
+            label="Sign Out"
+            onPress={() => {
+              // signOut();
+            }}
+          /> */}
+        </View>
       </Drawer.Section>
     </View>
   );
 };
+
+export default DrawerContent;
+
 const styles = StyleSheet.create({
   DrawerContent: {
     flex: 1,

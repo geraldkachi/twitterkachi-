@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import styles from "./styles";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, EvilIcons, AntDesign, Feather } from "@expo/vector-icons";
+import moment from "moment";
 
-// import TweetFooter from "../footer/TweetFooter";
+import TweetFooter from "../footer/TweetFooter";
 
 const MainContainer = ({ tweet }) => {
   return (
@@ -15,21 +16,21 @@ const MainContainer = ({ tweet }) => {
           {/* contents */}
           <Text style={styles.username}>@{tweet.user.username}</Text>
           {/* tweet footer */}
-          <Text style={styles.createdAt}>15s</Text>
+          <Text style={styles.createdAt}>
+            {moment(tweet.createdAt).fromNow}
+          </Text>
         </View>
         <Entypo name="chevron-down" size={16} color="grey" />
       </View>
       <View>
         <Text style={styles.content}>{tweet.content}</Text>
-        {!tweet.image && (
+        {tweet.image && (
           <Image style={styles.image} source={{ uri: tweet.image }} />
         )}
       </View>
-      <View>{/* <TweetFooter /> */}</View>
+      <TweetFooter tweet={tweet} />
     </View>
   );
 };
 
 export default MainContainer;
-
-// const styles = StyleSheet.create({});

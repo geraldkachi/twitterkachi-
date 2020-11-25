@@ -23,11 +23,15 @@ const styles = StyleSheet.create({
   image: {
     marginVertical: 10,
     width: "100%",
-    height: 300,
+    height: 200,
     resizeMode: "contain",
     borderRadius: 15,
     overflow: "hidden",
   },
+  // number: {
+  //   color: "grey",
+  //   marginLeft: 5,
+  // },
 });
 
 export default styles;

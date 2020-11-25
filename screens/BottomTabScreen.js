@@ -10,9 +10,18 @@ import Search from "./bottomtabs/Search";
 import Message from "./bottomtabs/Message";
 import Notification from "./bottomtabs/Notification";
 
-import Profile from "../components/profilePicture/Profile";
+// import Profile from "../components/profilePicture/Profile";
 
-import { Ionicons, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  Ionicons,
+  Octicons,
+  Entypo,
+  EvilIcons,
+  Feather,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { TextInput } from "react-native-paper";
 // import {
 //   Entypo,
 //   Ionicons,
@@ -97,20 +106,23 @@ const SearchStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
 const MessageStack = createStackNavigator();
 
-const HomeTwitterNavigator = () => (
+const HomeTwitterNavigator = ({ navigation }) => (
   <HomeTwitterStack.Navigator>
     <HomeTwitterStack.Screen
       name="HomeTwitterScreen"
       component={HomeTwitter}
       options={{
         headerLeft: ({ image }) => (
-          <Profile
-            // size={30}
-            source={image}
+          <MaterialIcons
+            name="menu"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => navigation.openDrawer()}
           />
+          // <Entypo name="menu" size={24} color={Colors.light.tint} />
+          // <Profile source={image} />
         ),
         headerLeftContainerStyle: { marginLeft: 15 },
-
         headerTitleAlign: "center",
         headerTitle: () => (
           <Ionicons name={"logo-twitter"} size={30} color={Colors.light.tint} />
@@ -127,32 +139,91 @@ const HomeTwitterNavigator = () => (
     />
   </HomeTwitterStack.Navigator>
 );
+/////////////////////////////////////////////////////////////////////////////////
 
-const SearchNavigator = () => (
+const SearchNavigator = ({ navigation }) => (
   <SearchStack.Navigator>
     <SearchStack.Screen
       name="SearchScreen"
       component={Search}
-      options={{ headerTitle: "Search" }}
+      options={{
+        headerLeft: ({ image }) => (
+          <MaterialIcons
+            name="menu"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+        headerLeftContainerStyle: { marginLeft: 15 },
+        headerTitleAlign: "center",
+        headerTitle: () => (
+          <View style={{ flexDirection: "row", backgroundColor: "white" }}>
+            <EvilIcons name={"search"} size={30} color={Colors.light.tint} />
+            <TextInput placeholder="Search Twitter" />
+          </View>
+        ),
+        headerRight: () => (
+          <Feather name={"settings"} size={30} color={Colors.light.tint} />
+        ),
+        headerRightContainerStyle: { marginRight: 15 },
+      }}
     />
   </SearchStack.Navigator>
 );
-const NotificationNavigator = () => (
+
+/////////////////////////////////////////////////////////////////////////
+
+const NotificationNavigator = ({ navigation }) => (
   <NotificationStack.Navigator>
     <NotificationStack.Screen
       name="NotificationScreen"
       component={Notification}
-      options={{ headerTitle: "Notification" }}
+      options={{
+        headerLeft: ({ image }) => (
+          <MaterialIcons
+            name="menu"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+        headerLeftContainerStyle: { marginLeft: 15 },
+        headerTitleAlign: "center",
+        headerTitle: () => "Notification",
+        headerRight: () => (
+          <Feather name={"settings"} size={30} color={Colors.light.tint} />
+        ),
+        headerRightContainerStyle: { marginRight: 15 },
+      }}
     />
   </NotificationStack.Navigator>
 );
 
-const MessageNavigator = () => (
+////////////////////////////////////////////////////////////////////////////
+
+const MessageNavigator = ({ navigation }) => (
   <MessageStack.Navigator>
     <MessageStack.Screen
       name="MessageScreen"
       component={Message}
-      options={{ headerTitle: "Message" }}
+      options={{
+        headerLeft: ({ image }) => (
+          <MaterialIcons
+            name="menu"
+            size={24}
+            color={Colors.light.tint}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+        headerLeftContainerStyle: { marginLeft: 15 },
+        headerTitleAlign: "center",
+        headerTitle: () => "Messages",
+        headerRight: () => (
+          <Feather name={"settings"} size={30} color={Colors.light.tint} />
+        ),
+        headerRightContainerStyle: { marginRight: 15 },
+      }}
     />
   </MessageStack.Navigator>
 );

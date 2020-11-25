@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, Image } from "react-native";
 
-let size = 30;
+let size = 60;
 const image = {
-  uri: "https://reactnative.dev/docs/assets/p_cat1.png",
+  uri:
+    "https://pbs.twimg.com/profile_images/1329640370565738497/UojmBzVK_400x400.jpg",
   width: size,
   height: size,
 };
