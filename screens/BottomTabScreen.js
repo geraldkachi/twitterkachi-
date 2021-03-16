@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, useColorScheme, View, Image } from "react-native";
+import { StyleSheet, Text, useColorScheme, View, Image,Alert } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -132,6 +132,10 @@ const HomeTwitterNavigator = ({ navigation }) => (
             name={"star-four-points-outline"}
             size={30}
             color={Colors.light.tint}
+            onPress={()=> Alert.alert('My Message', "My Title", [
+              {texy: 'Yes', onPress: () => {}},
+              {text: "No", onPress: () => {}}
+            ])}
           />
         ),
         headerRightContainerStyle: { marginRight: 15 },
@@ -158,9 +162,11 @@ const SearchNavigator = ({ navigation }) => (
         headerLeftContainerStyle: { marginLeft: 15 },
         headerTitleAlign: "center",
         headerTitle: () => (
-          <View style={{ flexDirection: "row", backgroundColor: "white" }}>
-            <EvilIcons name={"search"} size={30} color={Colors.light.tint} />
-            <TextInput placeholder="Search Twitter" />
+          <View style={{ flexDirection: "row", backgroundColor: "" }}>
+            {/* <EvilIcons name={"search"} size={30} color={Colors.light.tint} /> */}
+            <TextInput placeholder="Search Twitter" 
+            // style={{textAlign:'center'}}
+             />
           </View>
         ),
         headerRight: () => (

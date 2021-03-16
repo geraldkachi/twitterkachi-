@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { TextInput, SafeAreaView, StyleSheet, Text, View, Alert } from "react-native";
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
