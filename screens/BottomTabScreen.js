@@ -136,6 +136,7 @@ const HomeTwitterNavigator = ({ navigation }) => (
               {texy: 'Yes', onPress: () => {}},
               {text: "No", onPress: () => {}}
             ])}
+            // onPress={()=> Alert.prompt('My Message', "My Title", text => console.log(text) )}
           />
         ),
         headerRightContainerStyle: { marginRight: 15 },
