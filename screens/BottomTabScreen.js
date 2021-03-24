@@ -137,6 +137,7 @@ const HomeTwitterNavigator = ({ navigation }) => (
               {text: "No", onPress: () => {}}
             ])}
             // onPress={()=> Alert.prompt('My Message', "My Title", text => console.log(text) )}
+            //  this API only work at this time on ios
           />
         ),
         headerRightContainerStyle: { marginRight: 15 },

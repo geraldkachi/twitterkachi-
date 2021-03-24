@@ -32,8 +32,16 @@ const App = () => {
   );
 };
 
+// Detecting Orientation changes thats the rotation of the phone or app  you go to app.,json
+ // "orientation": "landscape",
+    // "orientation": "default",
+  //  this is better use can install... npm i @react-native-community/hooks
+  // import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
+
 export default App;
 
+// rnss react antive stylesheet
+// retrograde ejaculation  
 const styles = StyleSheet.create({});
 
 // initialRouteName="Home"

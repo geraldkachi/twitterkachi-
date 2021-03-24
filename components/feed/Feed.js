@@ -15,5 +15,6 @@ const Feed = () => (
 );
 
 export default Feed;
+// rnss react antive stylesheet
 
 // const styles = StyleSheet.create({})
