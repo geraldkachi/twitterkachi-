@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   },
   newTweetContainer: { flexDirection: "row", padding: 10 },
   inputContainer: { marginLeft: 10 },
-  textInput: { height: 100, maxHeight: 300, fontSize: 12, border: 1 },
+  textInput: { height: 100, maxHeight: 300, fontSize: 12, borderWidth: 1 },
   imageInput: {},
 });
